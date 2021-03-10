@@ -1,3 +1,4 @@
+package gui;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.EventQueue;
@@ -24,7 +25,6 @@ import javax.swing.JScrollPane;
 
 public class Settings extends JFrame implements ActionListener
 {
-
 	private JPanel contentPane;
 	private JTextField txtWidth;
 	private JTextField txtHeight;
