@@ -26,7 +26,7 @@ import javax.swing.JScrollPane;
 
 public class Settings extends JFrame implements ActionListener
 {
-
+//asudhiashd
 	private JPanel contentPane;
 	private JTextField txtWidth;
 	private JTextField txtHeight;
