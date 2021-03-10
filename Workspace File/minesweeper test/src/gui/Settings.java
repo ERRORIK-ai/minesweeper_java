@@ -51,7 +51,10 @@ public class Settings extends JFrame implements ActionListener
 
 		JPanel pnlSouth = new JPanel();
 		contentPane.add(pnlSouth, BorderLayout.SOUTH);
-
+		
+		btnReset.addActionListener(this);
+		pnlSouth.add(btnReset);
+		
 		btnStart.addActionListener(this);
 		pnlSouth.add(btnStart);
 
