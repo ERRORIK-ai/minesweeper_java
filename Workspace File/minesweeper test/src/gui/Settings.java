@@ -33,6 +33,7 @@ public class Settings extends JFrame implements ActionListener
 	private JTextField txtUsername;
 	private JButton btnStart = new JButton("Start");
 	private JButton btnReset = new JButton("Reset");
+	String Error="";
 
 	public static void main(String[] Args)
 	{
@@ -103,6 +104,10 @@ public class Settings extends JFrame implements ActionListener
 		txtUsername = new JTextField();
 		pnlCenter.add(txtUsername);
 		txtUsername.setColumns(10);
+		
+		// Error
+		JLabel Error = new JLabel(Error);
+		pnlCenter.add(Error);
 
 		// End Labels and Input Fields
 
@@ -115,7 +120,7 @@ public class Settings extends JFrame implements ActionListener
 		txtWidth.setText("20");
 		txtHeight.setText("20");
 		txtMines.setText("5");
-		txtUsername.setText("");
+		txtUsername.setText("Besucher");
 
 		this.setVisible(true);
 	}
@@ -128,11 +133,12 @@ public class Settings extends JFrame implements ActionListener
 			this.txtWidth.setText("20");
 			this.txtHeight.setText("20");
 			this.txtMines.setText("5");
-			this.txtUsername.setText("");
+			this.txtUsername.setText("Besucher");
 		}
 		else if (e.getSource() == this.btnStart)
 		{
-
+			if
+			//calculate.generator.generator(this.txtWidth, this.txtHeight);
 		}
 	}
 }
