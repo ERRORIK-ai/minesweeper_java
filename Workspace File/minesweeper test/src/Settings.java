@@ -28,11 +28,15 @@ public class Settings extends JFrame implements ActionListener
 	private JPanel contentPane;
 	private JTextField txtWidth;
 	private JTextField txtHeight;
-	private JTextField txtPercentage;
-	private JTextField txtusername;
+	private JTextField txtMines;
+	private JTextField txtusername; 
 	private JButton btnStart = new JButton("Start");
 	private JButton btnReset = new JButton("Reset");
 
+	public static void main(String[]Args)
+	{
+		Settings newa= new Settings();
+	}
 	// Create the frame.
 	public Settings()
 	{
@@ -54,7 +58,7 @@ public class Settings extends JFrame implements ActionListener
 		JPanel pnlCenter = new JPanel();
 		contentPane.add(pnlCenter, BorderLayout.CENTER);
 		pnlCenter.setLayout(new GridLayout(6, 2, 6, 6));
-
+		//Start Labels and Input Fields
 		// Width
 		JLabel lWidth = new JLabel("Width:");
 		pnlCenter.add(lWidth);
@@ -63,31 +67,37 @@ public class Settings extends JFrame implements ActionListener
 		pnlCenter.add(txtWidth);
 		txtWidth.setColumns(10);
 
-		// Width
-		JLabel lHeight = new JLabel("Width:");
+		// Height
+		JLabel lHeight = new JLabel("Height:");
 		pnlCenter.add(lHeight);
 
 		txtHeight = new JTextField();
 		pnlCenter.add(txtHeight);
 		txtHeight.setColumns(10);
 
-		// Width
-		JLabel lWidth = new JLabel("Width:");
-		pnlCenter.add(lWidth);
+		// Mines
+		JLabel lMines = new JLabel("Mines:");
+		pnlCenter.add(lMines);
 
-		txtWidth = new JTextField();
-		pnlCenter.add(txtWidth);
-		txtWidth.setColumns(10);
+		txtMines = new JTextField();
+		pnlCenter.add(txtMines);
+		txtMines.setColumns(10);
+		
+		// Username
+		JLabel lusername = new JLabel("Username:");
+		pnlCenter.add(lusername);
+
+		txtusername = new JTextField();
+		pnlCenter.add(txtusername);
+		txtusername.setColumns(10);
+		
+		//End Labels and Input Fields
 
 		pnlCenter.add(new JLabel(new ImageIcon("./")));
 
 		JPanel pnlNorth = new JPanel();
 		contentPane.add(pnlNorth, BorderLayout.NORTH);
 		pnlNorth.setLayout(new BorderLayout(0, 0));
-
-		JScrollPane scrollPane = new JScrollPane(list);
-		scrollPane.setPreferredSize(new Dimension(0, 200));
-		pnlNorth.add(scrollPane);
 
 		this.setVisible(true);
 	}
@@ -97,7 +107,7 @@ public class Settings extends JFrame implements ActionListener
 	{
 		if (e.getSource() == this.btnReset)
 		{
-			this.Width.setText("");
+			this.txtWidth.setText("");
 		}
 		else if (e.getSource() == this.btnStart)
 		{
