@@ -28,15 +28,17 @@ public class Settings extends JFrame implements ActionListener
 {
 
 	private JPanel contentPane;
-	private JTextField Width;
-	private JTextField Height;
-	private JTextField Percentage;
-	private JTextField username;
+	private JTextField txtWidth;
+	private JTextField txtHeight;
+	private JTextField txtPercentage;
+	private JTextField txtusername;
+	private JButton btnStart = new JButton("Start");
+	private JButton btnReset = new JButton("Reset");
 
 	// Create the frame.
 	public Settings()
 	{
-		setTitle("Poke");
+		setTitle("Einstellungen");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(400, 600);
 
@@ -47,53 +49,39 @@ public class Settings extends JFrame implements ActionListener
 
 		JPanel pnlSouth = new JPanel();
 		contentPane.add(pnlSouth, BorderLayout.SOUTH);
-
-		btnCancel.addActionListener(this);
-		pnlSouth.add(btnCancel);
-
-		btnSave.addActionListener(this);
-		pnlSouth.add(btnSave);
+		
+		btnStart.addActionListener(this);
+		pnlSouth.add(btnStart);
 
 		JPanel pnlCenter = new JPanel();
 		contentPane.add(pnlCenter, BorderLayout.CENTER);
 		pnlCenter.setLayout(new GridLayout(6, 2, 6, 6));
 
-		JLabel lblName = new JLabel("Name:");
-		pnlCenter.add(lblName);
+		//Width
+		JLabel lWidth = new JLabel("Width:");
+		pnlCenter.add(lWidth);
 
-		txtName = new JTextField();
-		pnlCenter.add(txtName);
-		txtName.setColumns(10);
+		txtWidth = new JTextField();
+		pnlCenter.add(txtWidth);
+		txtWidth.setColumns(10);
+		
+		//Width
+		JLabel lHeight = new JLabel("Width:");
+		pnlCenter.add(lHeight);
 
-		JLabel lblCodename = new JLabel("Code:");
-		pnlCenter.add(lblCodename);
+		txtHeight = new JTextField();
+		pnlCenter.add(txtHeight);
+		txtHeight.setColumns(10);
+		
+		//Width
+		JLabel lWidth = new JLabel("Width:");
+		pnlCenter.add(lWidth);
 
-		txtCodeName = new JTextField();
-		pnlCenter.add(txtCodeName);
-		txtCodeName.setColumns(10);
+		txtWidth = new JTextField();
+		pnlCenter.add(txtWidth);
+		txtWidth.setColumns(10);
 
-		JLabel lblAge = new JLabel("Weigth");
-		pnlCenter.add(lblAge);
-
-		weight = new JTextField();
-		pnlCenter.add(weight);
-		weight.setColumns(10);
-
-		JLabel lblEvolution = new JLabel("Evolution:");
-		pnlCenter.add(lblEvolution);
-
-		chkEvolution = new JCheckBox("");
-		pnlCenter.add(chkEvolution);
-
-		JLabel lblCommentar = new JLabel("Kommentar:");
-		pnlCenter.add(lblCommentar);
-
-		Commentar = new JTextField();
-		pnlCenter.add(Commentar);
-		Commentar.setColumns(10);
-
-		JLabel lblEvolution1 = new JLabel("https://www.pokemon.com");
-		pnlCenter.add(lblEvolution1);
+		
 
 		pnlCenter.add(new JLabel(new ImageIcon("./")));
 
@@ -105,52 +93,18 @@ public class Settings extends JFrame implements ActionListener
 		scrollPane.setPreferredSize(new Dimension(0, 200));
 		pnlNorth.add(scrollPane);
 
-		loadPokes();
-
 		this.setVisible(true);
 	}
-
-	private void loadPokes()
-	{
-		ArrayList<PokeDTO> Pokes = pokemon.getPokes();
-		model.clear();
-		for (PokeDTO Poke : Pokes)
-		{
-			model.addElement(Poke);
-		}
-	}
-
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		if (e.getSource() == this.btnCancel)
+		if (e.getSource() == this.btnReset)
 		{
-			this.txtName.setText("");
-			this.txtCodeName.setText("");
-			this.chkEvolution.setSelected(false);
-			this.weight.setText("");
-			this.Commentar.setText("");
-
+			this.Width.setText("");
 		}
-		else if (e.getSource() == this.btnSave)
+		else if (e.getSource() == this.btnStart)
 		{
-			PokeDTO a = new PokeDTO();
-			a.setName(PokemonView.this.txtName.getText());
-			a.setCodeName(PokemonView.this.txtCodeName.getText());
-			a.setEvolution(PokemonView.this.chkEvolution.isSelected());
-			a.setComment(PokemonView.this.Commentar.getText());
-			int weight;
-			try
-			{
-				weight = Integer.parseInt(PokemonView.this.weight.getText());
-			} catch (NumberFormatException nfex)
-			{
-				weight = 0;
-			}
-			a.setWeight(weight);
-			pokemon.addPoke(a);
 
-			loadPokes();
 		}
 	}
 }
