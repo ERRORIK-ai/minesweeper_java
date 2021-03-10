@@ -1,4 +1,5 @@
 package gui;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.EventQueue;
@@ -29,20 +30,22 @@ public class Settings extends JFrame implements ActionListener
 	private JTextField txtWidth;
 	private JTextField txtHeight;
 	private JTextField txtMines;
-	private JTextField txtusername; 
+	private JTextField txtUsername;
 	private JButton btnStart = new JButton("Start");
 	private JButton btnReset = new JButton("Reset");
 
-	public static void main(String[]Args)
+	public static void main(String[] Args)
 	{
-		Settings newa= new Settings();
+		Settings newa = new Settings();
 	}
+
 	// Create the frame.
 	public Settings()
 	{
 		setTitle("Einstellungen");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(400, 600);
+		setSize(400, 400);
+		setMinimumSize(new Dimension(200, 300));
 
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -51,17 +54,24 @@ public class Settings extends JFrame implements ActionListener
 
 		JPanel pnlSouth = new JPanel();
 		contentPane.add(pnlSouth, BorderLayout.SOUTH);
-		
+
 		btnReset.addActionListener(this);
 		pnlSouth.add(btnReset);
-		
+
 		btnStart.addActionListener(this);
 		pnlSouth.add(btnStart);
 
 		JPanel pnlCenter = new JPanel();
 		contentPane.add(pnlCenter, BorderLayout.CENTER);
 		pnlCenter.setLayout(new GridLayout(6, 2, 6, 6));
-		//Start Labels and Input Fields
+
+		JLabel label1 = new JLabel("Einstellungen");
+		pnlCenter.add(label1);
+		JLabel label2 = new JLabel(" ");
+		pnlCenter.add(label2);
+
+		// Start Labels and Input Fields
+
 		// Width
 		JLabel lWidth = new JLabel("Width:");
 		pnlCenter.add(lWidth);
@@ -85,22 +95,27 @@ public class Settings extends JFrame implements ActionListener
 		txtMines = new JTextField();
 		pnlCenter.add(txtMines);
 		txtMines.setColumns(10);
-		
+
 		// Username
 		JLabel lusername = new JLabel("Username:");
 		pnlCenter.add(lusername);
 
-		txtusername = new JTextField();
-		pnlCenter.add(txtusername);
-		txtusername.setColumns(10);
-		
-		//End Labels and Input Fields
+		txtUsername = new JTextField();
+		pnlCenter.add(txtUsername);
+		txtUsername.setColumns(10);
+
+		// End Labels and Input Fields
 
 		pnlCenter.add(new JLabel(new ImageIcon("./")));
 
 		JPanel pnlNorth = new JPanel();
 		contentPane.add(pnlNorth, BorderLayout.NORTH);
 		pnlNorth.setLayout(new BorderLayout(0, 0));
+
+		txtWidth.setText("20");
+		txtHeight.setText("20");
+		txtMines.setText("5");
+		txtUsername.setText("");
 
 		this.setVisible(true);
 	}
@@ -110,7 +125,10 @@ public class Settings extends JFrame implements ActionListener
 	{
 		if (e.getSource() == this.btnReset)
 		{
-			this.txtWidth.setText("");
+			this.txtWidth.setText("20");
+			this.txtHeight.setText("20");
+			this.txtMines.setText("5");
+			this.txtUsername.setText("");
 		}
 		else if (e.getSource() == this.btnStart)
 		{
