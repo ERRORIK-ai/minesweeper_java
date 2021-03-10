@@ -49,7 +49,7 @@ public class Settings extends JFrame implements ActionListener
 
 		JPanel pnlSouth = new JPanel();
 		contentPane.add(pnlSouth, BorderLayout.SOUTH);
-		
+
 		btnStart.addActionListener(this);
 		pnlSouth.add(btnStart);
 
@@ -57,31 +57,29 @@ public class Settings extends JFrame implements ActionListener
 		contentPane.add(pnlCenter, BorderLayout.CENTER);
 		pnlCenter.setLayout(new GridLayout(6, 2, 6, 6));
 
-		//Width
+		// Width
 		JLabel lWidth = new JLabel("Width:");
 		pnlCenter.add(lWidth);
 
 		txtWidth = new JTextField();
 		pnlCenter.add(txtWidth);
 		txtWidth.setColumns(10);
-		
-		//Width
+
+		// Width
 		JLabel lHeight = new JLabel("Width:");
 		pnlCenter.add(lHeight);
 
 		txtHeight = new JTextField();
 		pnlCenter.add(txtHeight);
 		txtHeight.setColumns(10);
-		
-		//Width
+
+		// Width
 		JLabel lWidth = new JLabel("Width:");
 		pnlCenter.add(lWidth);
 
 		txtWidth = new JTextField();
 		pnlCenter.add(txtWidth);
 		txtWidth.setColumns(10);
-
-		
 
 		pnlCenter.add(new JLabel(new ImageIcon("./")));
 
@@ -95,6 +93,7 @@ public class Settings extends JFrame implements ActionListener
 
 		this.setVisible(true);
 	}
+
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
