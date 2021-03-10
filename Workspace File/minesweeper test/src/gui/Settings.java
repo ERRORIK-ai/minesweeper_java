@@ -1,4 +1,5 @@
 package gui;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.EventQueue;
@@ -28,17 +29,24 @@ public class Settings extends JFrame implements ActionListener
 	private JPanel contentPane;
 	private JTextField txtWidth;
 	private JTextField txtHeight;
-	private JTextField txtPercentage;
-	private JTextField txtusername;
+	private JTextField txtMines;
+	private JTextField txtUsername;
 	private JButton btnStart = new JButton("Start");
 	private JButton btnReset = new JButton("Reset");
+	String Error="";
+
+	public static void main(String[] Args)
+	{
+		Settings newa = new Settings();
+	}
 
 	// Create the frame.
 	public Settings()
 	{
 		setTitle("Einstellungen");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(400, 600);
+		setSize(400, 400);
+		setMinimumSize(new Dimension(200, 300));
 
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -48,6 +56,9 @@ public class Settings extends JFrame implements ActionListener
 		JPanel pnlSouth = new JPanel();
 		contentPane.add(pnlSouth, BorderLayout.SOUTH);
 
+		btnReset.addActionListener(this);
+		pnlSouth.add(btnReset);
+
 		btnStart.addActionListener(this);
 		pnlSouth.add(btnStart);
 
@@ -55,6 +66,13 @@ public class Settings extends JFrame implements ActionListener
 		contentPane.add(pnlCenter, BorderLayout.CENTER);
 		pnlCenter.setLayout(new GridLayout(6, 2, 6, 6));
 
+		JLabel label1 = new JLabel("Einstellungen");
+		pnlCenter.add(label1);
+		JLabel label2 = new JLabel(" ");
+		pnlCenter.add(label2);
+
+		// Start Labels and Input Fields
+
 		// Width
 		JLabel lWidth = new JLabel("Width:");
 		pnlCenter.add(lWidth);
@@ -63,21 +81,35 @@ public class Settings extends JFrame implements ActionListener
 		pnlCenter.add(txtWidth);
 		txtWidth.setColumns(10);
 
-		// Width
-		JLabel lHeight = new JLabel("Width:");
+		// Height
+		JLabel lHeight = new JLabel("Height:");
 		pnlCenter.add(lHeight);
 
 		txtHeight = new JTextField();
 		pnlCenter.add(txtHeight);
 		txtHeight.setColumns(10);
 
-		// Width
-		JLabel lWidth = new JLabel("Width:");
-		pnlCenter.add(lWidth);
+		// Mines
+		JLabel lMines = new JLabel("Mines:");
+		pnlCenter.add(lMines);
 
-		txtWidth = new JTextField();
-		pnlCenter.add(txtWidth);
-		txtWidth.setColumns(10);
+		txtMines = new JTextField();
+		pnlCenter.add(txtMines);
+		txtMines.setColumns(10);
+
+		// Username
+		JLabel lusername = new JLabel("Username:");
+		pnlCenter.add(lusername);
+
+		txtUsername = new JTextField();
+		pnlCenter.add(txtUsername);
+		txtUsername.setColumns(10);
+		
+		// Error
+		JLabel Error = new JLabel(Error);
+		pnlCenter.add(Error);
+
+		// End Labels and Input Fields
 
 		pnlCenter.add(new JLabel(new ImageIcon("./")));
 
@@ -85,9 +117,10 @@ public class Settings extends JFrame implements ActionListener
 		contentPane.add(pnlNorth, BorderLayout.NORTH);
 		pnlNorth.setLayout(new BorderLayout(0, 0));
 
-		JScrollPane scrollPane = new JScrollPane(list);
-		scrollPane.setPreferredSize(new Dimension(0, 200));
-		pnlNorth.add(scrollPane);
+		txtWidth.setText("20");
+		txtHeight.setText("20");
+		txtMines.setText("5");
+		txtUsername.setText("Besucher");
 
 		this.setVisible(true);
 	}
@@ -97,11 +130,15 @@ public class Settings extends JFrame implements ActionListener
 	{
 		if (e.getSource() == this.btnReset)
 		{
-			this.Width.setText("");
+			this.txtWidth.setText("20");
+			this.txtHeight.setText("20");
+			this.txtMines.setText("5");
+			this.txtUsername.setText("Besucher");
 		}
 		else if (e.getSource() == this.btnStart)
 		{
-
+			if
+			//calculate.generator.generator(this.txtWidth, this.txtHeight);
 		}
 	}
 }
