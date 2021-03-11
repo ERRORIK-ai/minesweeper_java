@@ -1,3 +1,6 @@
+
+//OLD ALTE VERSION (NEU=MINESWEEPER2) 
+
 package calculate;
 
 public class generator {

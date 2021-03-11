@@ -14,7 +14,7 @@ public class start {
 		//Eines muss Null sein!
 		//prozent minen max 100 / min 1
 		int prozent_minen=0;
-		//anzhal minen darf nicht mehr als (width_x*height_y) sein
+		//anzahl minen darf nicht mehr als (width_x*height_y) sein
 		int anzahl_minen=10;
 		
 		
