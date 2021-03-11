@@ -40,9 +40,9 @@ public class generator {
 
 		//Oberste Reihe
 		for (int x = 0; x < field.length-1; x++) {
-		field[x][0];
+		//field[x][0];
 		}
-		field[field.length][0]
+		//field[field.length][0]
 		
 		//Die Mittleren Reihen
 		for (int x = 0; x < field.length; x++) {
@@ -50,8 +50,8 @@ public class generator {
 
 				for (int check_y=y - 1; check_y<y + 1; check_y++) {
 				    for (int check_x=x - 1; check_x<x + 1; check_x++) {
-				   if (check_x != 0 AND check_y != 0) {
-				   }
+				  // if (check_x != 0 AND check_y != 0) {
+				   //}
 				   }
 				    }
 				}
@@ -59,7 +59,7 @@ public class generator {
 				
 				
 			}
-		}
+		
 
 	// Die Untere Reihe
 
