@@ -38,16 +38,34 @@ public class generator {
 		int check_num_x;
 		int check_num_y;
 		
-		int m = field.length;
-        int n = field[0].length;
-        int[][] C = new int[n][m];
-        for (int i = 0; i < m; i++)
-            for (int j = 0; j < n; j++)
-                C[j][i] = A[i][j];
-        return C;
-    }
+		
 
-		return field;
-	}
+		//Oberste Reihe
+		for (int x = 0; x < field.length-1; x++) {
+		field[x][0];
+		}
+		field[field.length][0]
+		
+		//Die Mittleren Reihen
+		for (int x = 0; x < field.length; x++) {
+			for (int y = 0; y < field[x].length; y++) {
+
+				for (int check_y=y - 1; check_y<y + 1; check_y++) {
+				    for (int check_x=x - 1; check_x<x + 1; check_x++) {
+				   if (check_x != 0 AND check_y != 0) {
+				   }
+				   }
+				    }
+				}
+				
+				
+				
+			}
+		}
+
+	// Die Untere Reihe
+
+	return field;
+}
 
 }
