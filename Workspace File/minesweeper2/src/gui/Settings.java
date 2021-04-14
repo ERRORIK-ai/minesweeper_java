@@ -30,6 +30,7 @@ public class Settings extends JFrame implements ActionListener
 	private JTextField txtWidth;
 	private JTextField txtHeight;
 	private JTextField txtMines;
+	private JTextField txtMinesPercent;
 	private JTextField txtUsername;
 	private JButton btnStart = new JButton("Start");
 	private JButton btnReset = new JButton("Reset");
@@ -44,8 +45,8 @@ public class Settings extends JFrame implements ActionListener
 	{
 		setTitle("Einstellungen");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(400, 400);
-		setMinimumSize(new Dimension(200, 300));
+		setSize(400, 500);
+		setMinimumSize(new Dimension(300, 500));
 
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -55,6 +56,12 @@ public class Settings extends JFrame implements ActionListener
 		JPanel pnlSouth = new JPanel();
 		contentPane.add(pnlSouth, BorderLayout.SOUTH);
 
+		pnlSouth.setLayout(new GridLayout(3, 1, 1, 1));
+		
+		//Mines Info
+		JLabel lMinesInfo = new JLabel("<html>*Bei \"Mines in Percent\" und \"Mines overall\" muss nur eines davon gesetzt werden. Werden beide Felder gefüllt mit einem Wert, der über Null ist, so wird immer der Prozent wert genommen.</html>");
+		pnlSouth.add(lMinesInfo);
+		
 		btnReset.addActionListener(this);
 		pnlSouth.add(btnReset);
 
@@ -63,7 +70,7 @@ public class Settings extends JFrame implements ActionListener
 
 		JPanel pnlCenter = new JPanel();
 		contentPane.add(pnlCenter, BorderLayout.CENTER);
-		pnlCenter.setLayout(new GridLayout(6, 2, 6, 6));
+		pnlCenter.setLayout(new GridLayout(8, 1, 1, 1));
 
 		JLabel label1 = new JLabel("Einstellungen");
 		pnlCenter.add(label1);
@@ -87,14 +94,22 @@ public class Settings extends JFrame implements ActionListener
 		txtHeight = new JTextField();
 		pnlCenter.add(txtHeight);
 		txtHeight.setColumns(10);
-
+		
 		// Mines
-		JLabel lMines = new JLabel("Mines:");
+		JLabel lMines = new JLabel("Mines overall:");
 		pnlCenter.add(lMines);
 
 		txtMines = new JTextField();
 		pnlCenter.add(txtMines);
 		txtMines.setColumns(10);
+		
+		// Mines Percent
+		JLabel lMinesPercent = new JLabel("Mines in Percent:");
+		pnlCenter.add(lMinesPercent);
+
+		txtMinesPercent = new JTextField();
+		pnlCenter.add(txtMinesPercent);
+		txtMinesPercent.setColumns(10);
 
 		// Username
 		JLabel lusername = new JLabel("Username:");
@@ -119,6 +134,7 @@ public class Settings extends JFrame implements ActionListener
 		txtWidth.setText("20");
 		txtHeight.setText("20");
 		txtMines.setText("5");
+		txtMinesPercent.setText("0");
 		txtUsername.setText("Besucher");
 
 		this.setVisible(true);
@@ -132,6 +148,7 @@ public class Settings extends JFrame implements ActionListener
 			this.txtWidth.setText("20");
 			this.txtHeight.setText("20");
 			this.txtMines.setText("5");
+			this.txtMinesPercent.setText("5");
 			this.txtUsername.setText("Besucher");
 		}
 		else if (e.getSource() == this.btnStart)
@@ -194,4 +211,14 @@ public class Settings extends JFrame implements ActionListener
 	{
 		this.txtUsername = txtUsername;
 	}
+	public JTextField getTxtMinesPercent()
+	{
+		return txtMinesPercent;
+	}
+
+	public void setTxtMinesPercent(JTextField txtMinesPercent)
+	{
+		this.txtMinesPercent = txtMinesPercent;
+	}
+
 }
