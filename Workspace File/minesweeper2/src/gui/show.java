@@ -16,8 +16,9 @@ public class show extends JPanel
 
 	public show(int[][] map, byte[][] marked)
 		{ // constructor
-			frame.setLayout(new GridLayout(map.length, map[1].length, 3, 3));
-			addButtons(frame, map[1].length);
+		System.out.println(map[1].length+" - "+ map.length);
+			frame.setLayout(new GridLayout(map[1].length, map.length, 3, 3));
+			addButtons(frame, map.length);
 			frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			frame.pack();
 			frame.setVisible(true);
