@@ -29,20 +29,37 @@ public class generator {
 				}
 			}
 		}
+		
 		return field;
 	}
 
 	public static int[][] calc(int[][] field) {
 		int check_num_x;
 		int check_num_y;
-		
+		int mine_counter = 0;
 		
 
 		//Oberste Reihe
-		for (int x = 0; x < field.length-1; x++) {
-		//field[x][0];
+		for (int y = 1; y < field.length-1; y++) {
+			if (field[0][y]!=9) {
+				mine_counter=0;
+			if (field[0][y-1]==9) {mine_counter++;}
+			if (field[1][y-1]==9) {mine_counter++;}
+			if (field[1][y]==9) {mine_counter++;}
+			if (field[1][y+1]==9) {mine_counter++;}
+			if (field[0][y+1]==9) {mine_counter++;}
+			}
+			field[0][3-1]=8;
+			field[1][3-1]=8;
+			field[1][3]=8;
+			field[1][3+1]=8;
+			field[0][3+1]=8;
+			//field[0][y] = mine_counter;
 		}
-		//field[field.length][0]
+		
+		//Obere Ecken
+
+		
 		
 		//Die Mittleren Reihen
 		for (int x = 0; x < field.length; x++) {

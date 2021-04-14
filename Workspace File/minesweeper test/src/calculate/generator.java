@@ -38,14 +38,26 @@ public class generator {
 	public static int[][] calc(int[][] field) {
 		int check_num_x;
 		int check_num_y;
-		
+		int mine_counter;
 		
 
 		//Oberste Reihe
 		for (int x = 0; x < field.length-1; x++) {
-		field[x][0];
+			if (field[x][0]!=9) {
+			if (field[x-1][0]==9) {mine_counter++;}
+			if (field[x-1][1]==9) {mine_counter++;}
+			if (field[x][1]==9) {mine_counter++;}
+			if (field[x+1][1]==9) {mine_counter++;}
+			if (field[x+1][0]==9) {mine_counter++;}
+			}
+			field[x][0] = mine_counter;
+			mine_counter=0;
 		}
-		field[field.length][0]
+
+				
+				
+				
+				
 		
 		//Die Mittleren Reihen
 		for (int x = 0; x < field.length; x++) {

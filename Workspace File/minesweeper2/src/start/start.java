@@ -21,7 +21,7 @@ public class start {
 		
 		// width_x, height_y, prozent_minen, anzahl_minen
 		generator_obj = generator.generator(width_x, height_y, prozent_minen, anzahl_minen);
-		
+		generator_obj = generator.calc(generator_obj);
 		
 		
 		//output printer (löschbar)--
