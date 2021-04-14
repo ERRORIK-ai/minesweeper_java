@@ -15,15 +15,15 @@ public class show extends JPanel
 	int t = 10;
 
 	public show(int[][] map, byte[][] marked)
-		{ // constructor
-		System.out.println(map[1].length+" - "+ map.length);
-			frame.setLayout(new GridLayout(map[1].length, map.length, 3, 3));
-			addButtons(frame, map.length);
-			frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-			frame.pack();
-			frame.setVisible(true);
+	{ // constructor
+		System.out.println(map[1].length + " - " + map.length);
+		frame.setLayout(new GridLayout(map[1].length, map.length, 3, 3));
+		addButtons(frame, map.length, map[1].length);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.pack();
+		frame.setVisible(true);
 
-		}
+	}
 
 	@Override
 	public void paint(Graphics g)
@@ -43,14 +43,14 @@ public class show extends JPanel
 		}
 	}
 
-	private void addButtons(JFrame frame, int t)
+	private void addButtons(JFrame frame, int x, int y)
 	{
 		JButton grid;
-		for (int y = 0; y < t; y++)
+		for (int yb = 0; yb < y; yb++)
 		{
-			for (int x = 0; x < t; x++)
+			for (int xb = 0; xb < x; xb++)
 			{
-				grid = new JButton(x + "," + y); // creates new button
+				grid = new JButton(xb + "," + yb); // creates new button
 				grid.setPreferredSize(new Dimension(55, 55));
 				frame.add(grid); // adds button to grid
 

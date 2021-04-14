@@ -8,15 +8,13 @@ public class start {
 	public static void main(String[] args) {
 		int[][] generator_obj;
 		
-		int width_x=10;
-		int height_y=10;
-		
-		//Eines muss Null sein!
-		//prozent minen max 100 / min 1
-		int prozent_minen=0;
-		//anzahl minen darf nicht mehr als (width_x*height_y) sein
-		int anzahl_minen=0;
-		
+		Settings SettingsB = new Settings();
+		int  width_x =Integer.parseInt(SettingsB.getTxtWidth().getText());
+		System.out.println(width_x);
+		int height_y=  Integer.parseInt(SettingsB.getTxtHeight().getText());
+		System.out.println(height_y);
+		double anzahl_minen= Double.parseDouble(SettingsB.getTxtMines().getText());
+		double prozent_minen= Integer.parseInt(SettingsB.getTxtMinesPercent().getText());
 		
 		
 		// width_x, height_y, prozent_minen, anzahl_minen
