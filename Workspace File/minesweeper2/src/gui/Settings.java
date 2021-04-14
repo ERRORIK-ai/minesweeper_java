@@ -33,15 +33,14 @@ public class Settings extends JFrame implements ActionListener
 	private JTextField txtUsername;
 	private JButton btnStart = new JButton("Start");
 	private JButton btnReset = new JButton("Reset");
-	String Error="";
-
+	private String txtError="";
+	public static Settings settings = new Settings();
 	public static void main(String[] Args)
 	{
-		Settings newa = new Settings();
 	}
 
 	// Create the frame.
-	public Settings()
+	public  Settings()
 	{
 		setTitle("Einstellungen");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -106,7 +105,7 @@ public class Settings extends JFrame implements ActionListener
 		txtUsername.setColumns(10);
 		
 		// Error
-		JLabel Error = new JLabel(Error);
+		JLabel Error = new JLabel(txtError);
 		pnlCenter.add(Error);
 
 		// End Labels and Input Fields
@@ -137,8 +136,21 @@ public class Settings extends JFrame implements ActionListener
 		}
 		else if (e.getSource() == this.btnStart)
 		{
-			if
-			//calculate.generator.generator(this.txtWidth, this.txtHeight);
+			if(isNumeric(txtWidth.getText())&&isNumeric(txtHeight.getText())&&isNumeric(txtMines.getText()))
+			{
+				System.out.println(settings.txtWidth.getText());
+			}
 		}
+	}
+	public static boolean isNumeric(String strNum) {
+	    if (strNum == null) {
+	        return false;
+	    }
+	    try {
+	        int d = Integer.parseInt(strNum);
+	    } catch (NumberFormatException nfe) {
+	        return false;
+	    }
+	    return true;
 	}
 }
