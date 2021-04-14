@@ -138,7 +138,8 @@ public class Settings extends JFrame implements ActionListener
 		{
 			if(isNumeric(txtWidth.getText())&&isNumeric(txtHeight.getText())&&isNumeric(txtMines.getText()))
 			{
-				System.out.println(settings.txtWidth.getText());
+				System.out.println(txtWidth.getText());
+				game.gameloop(settings);
 			}
 		}
 	}
@@ -152,5 +153,45 @@ public class Settings extends JFrame implements ActionListener
 	        return false;
 	    }
 	    return true;
+	}
+	
+	public JTextField getTxtWidth()
+	{
+		return txtWidth;
+	}
+
+	public void setTxtWidth(JTextField txtWidth)
+	{
+		this.txtWidth = txtWidth;
+	}
+
+	public JTextField getTxtHeight()
+	{
+		return txtHeight;
+	}
+
+	public void setTxtHeight(JTextField txtHeight)
+	{
+		this.txtHeight = txtHeight;
+	}
+
+	public JTextField getTxtMines()
+	{
+		return txtMines;
+	}
+
+	public void setTxtMines(JTextField txtMines)
+	{
+		this.txtMines = txtMines;
+	}
+
+	public JTextField getTxtUsername()
+	{
+		return txtUsername;
+	}
+
+	public void setTxtUsername(JTextField txtUsername)
+	{
+		this.txtUsername = txtUsername;
 	}
 }

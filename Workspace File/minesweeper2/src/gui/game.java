@@ -6,6 +6,7 @@ public class game
 {
 	public static void gameloop(Settings SettingsB)
 	{
-		generator generator = new generator(width, height, percent_mines, mines);
+		System.out.println(SettingsB.getTxtWidth());
+		generator generator = new generator(Integer.parseInt(SettingsB.getTxtWidth().getText()),Integer.parseInt(SettingsB.getTxtWidth().getText()), Double.parseDouble(SettingsB.getTxtWidth().getText()), Integer.parseInt(SettingsB.getTxtWidth().getText()));
 	}
 }
