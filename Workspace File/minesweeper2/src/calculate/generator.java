@@ -4,18 +4,10 @@ public class generator {
 
 	public static int[][] generator(int width, int height, double percent_mines, double mines) {
 
+		//Generiere Minesweeperfeld
 		int[][] field = new int[width][height];
-		if (mines == 0) {
-			// If Set PERCENTAGE
-			for (int x = 0; x < width; x++) {
-				for (int y = 0; y < height; y++) {
-					double asfddas = Math.random();
-					if (asfddas < percent_mines / 100) {
-						field[x][y] = 9;
-					}
-				}
-			}
-		} else if (percent_mines == 0) {
+		
+		if (mines > 0 && percent_mines == 0) {
 			// IF SET COUNT OF MINES
 			int count_mines = 0;
 			for (; count_mines < mines;) {
@@ -28,59 +20,229 @@ public class generator {
 					}
 				}
 			}
+		} else {
+			//Falls kein Prozentwert mitgegeben wurde, wird 10% genommen
+			if (percent_mines == 0) percent_mines=10;
+			
+			// If Set PERCENTAGE
+			for (int x = 0; x < width; x++) {
+				for (int y = 0; y < height; y++) {
+					double asfddas = Math.random();
+					if (asfddas < percent_mines / 100) {
+						field[x][y] = 9;
+					}
+				}
+			}
 		}
 		
 		return field;
 	}
 
-	public static int[][] calc(int[][] field) {
-		int check_num_x;
-		int check_num_y;
-		int mine_counter = 0;
-		
+	public static int[][] calc(int[][] field, int width, int height) {
 
-		//Oberste Reihe
-		for (int y = 1; y < field.length-1; y++) {
-			if (field[0][y]!=9) {
-				mine_counter=0;
-			if (field[0][y-1]==9) {mine_counter++;}
-			if (field[1][y-1]==9) {mine_counter++;}
-			if (field[1][y]==9) {mine_counter++;}
-			if (field[1][y+1]==9) {mine_counter++;}
-			if (field[0][y+1]==9) {mine_counter++;}
+		int mine_counter = 0;
+
+		height=height-1;
+		width=width-1;
+		
+		// Oberste Reihe
+		for (int y = 1; y < height; y++) {
+			if (field[0][y] != 9) {
+				if (field[0][y - 1] == 9) {
+					mine_counter++;
+				}
+				if (field[1][y - 1] == 9) {
+					mine_counter++;
+				}
+				if (field[1][y] == 9) {
+					mine_counter++;
+				}
+				if (field[1][y + 1] == 9) {
+					mine_counter++;
+				}
+				if (field[0][y + 1] == 9) {
+					mine_counter++;
+				}
+				field[0][y] = mine_counter;
+				mine_counter = 0;
 			}
-			field[0][3-1]=8;
-			field[1][3-1]=8;
-			field[1][3]=8;
-			field[1][3+1]=8;
-			field[0][3+1]=8;
-			//field[0][y] = mine_counter;
+
 		}
 		
-		//Obere Ecken
-
+		// Oberen Ecken
+		if (field[0][0] != 9) {
+			mine_counter = 0;
+			if (field[1][0] == 9) {
+				mine_counter++;
+			}
+			if (field[1][1] == 9) {
+				mine_counter++;
+			}
+			if (field[0][1] == 9) {
+				mine_counter++;
+			}
+			field[0][0]= mine_counter;
+			mine_counter = 0;
+		}
 		
+		if (field[0][height] != 9) {
+			mine_counter = 0;
+			if (field[1][height] == 9) {
+				mine_counter++;
+			}
+			if (field[1][height-1] == 9) {
+				mine_counter++;
+			}
+			if (field[0][height-1] == 9) {
+				mine_counter++;
+			}
+			field[0][height]= mine_counter;
+			mine_counter = 0;
+		}
 		
-		//Die Mittleren Reihen
-		for (int x = 0; x < field.length; x++) {
-			for (int y = 0; y < field[x].length; y++) {
+		// Die Mittleren Reihen
+		for (int x = 1; x < height; x++) {
+			for (int y = 1; y < width; y++) {
 
-				for (int check_y=y - 1; check_y<y + 1; check_y++) {
-				    for (int check_x=x - 1; check_x<x + 1; check_x++) {
-				  // if (check_x != 0 AND check_y != 0) {
-				   //}
-				   }
-				    }
-				}
-				
-				
+				if (field[y][x] != 9) {
+					if (field[y-1][x+1] == 9) {
+						mine_counter++;
+					}
+					if (field[y-1][x] == 9) {
+						mine_counter++;
+					}
+					if (field[y-1][x-1] == 9) {
+						mine_counter++;
+					}
+					if (field[y][x-1] == 9) {
+						mine_counter++;
+					}
+					if (field[y+1][x-1] == 9) {
+						mine_counter++;
+					}
+					if (field[y+1][x] == 9) {
+						mine_counter++;
+					}
+					if (field[y+1][x+1] == 9) {
+						mine_counter++;
+					}
+					if (field[y][x+1] == 9) {
+						mine_counter++;
+					}			
+					field[y][x] = mine_counter;
+					mine_counter = 0;
+				}	
 				
 			}
+		}
+
 		
+		
+		// Die Unterste Reihe
+		for (int y = 1; y < height; y++) {
+			if (field[width][y] != 9) {
+				if (field[width][y - 1] == 9) {
+					mine_counter++;
+				}
+				if (field[width-1][y - 1] == 9) {
+					mine_counter++;
+				}
+				if (field[width-1][y] == 9) {
+					mine_counter++;
+				}
+				if (field[width-1][y + 1] == 9) {
+					mine_counter++;
+				}
+				if (field[width][y + 1] == 9) {
+					mine_counter++;
+				}
+				field[width][y] = mine_counter;
+				mine_counter = 0;
+			}
+		}
+		
+		//Unteren Ecken
 
-	// Die Untere Reihe
+		if (field[width][0] != 9) {
+			if (field[width][1] == 9) {
+				mine_counter++;
+			}
+			if (field[width-1][1] == 9) {
+				mine_counter++;
+			}
+			if (field[width-1][0] == 9) {
+				mine_counter++;
+			}
+			field[width][0] = mine_counter;
+			mine_counter = 0;
+		}
+		
+		if (field[width][height] != 9) {
+			if (field[width][height-1] == 9) {
+				mine_counter++;
+			}
+			if (field[width-1][height-1] == 9) {
+				mine_counter++;
+			}
+			if (field[width-1][height] == 9) {
+				mine_counter++;
+			}
+			field[width][height] = mine_counter;
+			mine_counter = 0;
+		}
+		
+		
+		// Die Linke Reihe
+				for (int x = 1; x < width; x++) {
+					if (field[x][0] != 9) {
+						if (field[x-1][0] == 9) {
+							mine_counter++;
+						}
+						if (field[x+1][0] == 9) {
+							mine_counter++;
+						}
+						if (field[x+1][1] == 9) {
+							mine_counter++;
+						}
+						if (field[x-1][1] == 9) {
+							mine_counter++;
+						}
+						if (field[x][1] == 9) {
+							mine_counter++;
+						}
+						field[x][0] = mine_counter;
+						mine_counter = 0;
+					}
+				}
+				
 
-	return field;
-}
+				//Die Rechte Reihe
+				for (int x = 1; x < width; x++) {
+					if (field[x][height] != 9) {
+						if (field[x-1][height] == 9) {
+							mine_counter++;
+						}
+						if (field[x+1][height] == 9) {
+							mine_counter++;
+						}
+						if (field[x+1][height-1] == 9) {
+							mine_counter++;
+						}
+						if (field[x-1][height-1] == 9) {
+							mine_counter++;
+						}
+						if (field[x][height-1] == 9) {
+							mine_counter++;
+						}
+						field[x][height] = mine_counter;
+						mine_counter = 0;
+					}
+				}
+		
+				
+				
+
+		return field;
+	}
 
 }

@@ -15,13 +15,13 @@ public class start {
 		//prozent minen max 100 / min 1
 		int prozent_minen=0;
 		//anzahl minen darf nicht mehr als (width_x*height_y) sein
-		int anzahl_minen=10;
+		int anzahl_minen=0;
 		
 		
 		
 		// width_x, height_y, prozent_minen, anzahl_minen
 		generator_obj = generator.generator(width_x, height_y, prozent_minen, anzahl_minen);
-		generator_obj = generator.calc(generator_obj);
+		generator_obj = generator.calc(generator_obj, width_x, height_y);
 		
 		
 		//output printer (löschbar)--
