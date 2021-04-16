@@ -70,7 +70,7 @@ public class Settings extends JFrame implements ActionListener
 
 		JPanel pnlCenter = new JPanel();
 		contentPane.add(pnlCenter, BorderLayout.CENTER);
-		pnlCenter.setLayout(new GridLayout(8, 1, 1, 1));
+		pnlCenter.setLayout(new GridLayout(7, 1, 1, 1));
 
 		JLabel label1 = new JLabel("Einstellungen");
 		pnlCenter.add(label1);
