@@ -7,6 +7,7 @@ public class start {
 
 	public static void main(String[] args) {
 		int[][] generator_obj;
+		boolean[][] reveal_obj;
 		
 		Settings SettingsB = new Settings();
 		int  width_x =Integer.parseInt(SettingsB.getTxtWidth().getText());
@@ -20,6 +21,14 @@ public class start {
 		// width_x, height_y, prozent_minen, anzahl_minen
 		generator_obj = generator.generator(width_x, height_y, prozent_minen, anzahl_minen);
 		generator_obj = generator.calc(generator_obj, width_x, height_y);
+		
+		
+		//Simuliert Spieler eingabe ->Hier wird das Feld (6/6) angeklickt /x+1 & y+1
+		int pos_x = 5;
+		int pos_y = 5;
+		
+		reveal_obj = reveal.create(width_x, height_y);
+		reveal_obj = reveal.reveal(reveal_obj, generator_obj, width_x, height_y, pos_x, pos_y);
 		
 		
 		//output printer (löschbar)--
