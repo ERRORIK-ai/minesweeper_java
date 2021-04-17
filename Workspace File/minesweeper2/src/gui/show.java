@@ -31,6 +31,9 @@ import javax.swing.JScrollPane;
 
 public class show extends JPanel implements ActionListener {
 	private JButton[][] grid;
+	private static byte[][] markedfields;
+	private static int[][] mapB;
+
 	public static void showgui(int[][] map, byte[][] marked) {
 		new show(map, marked);
 	}
@@ -38,9 +41,11 @@ public class show extends JPanel implements ActionListener {
 	JFrame frame = new JFrame();
 
 	public show(int[][] map, byte[][] marked) {
+		markedfields = marked;
+		mapB = map;
 		int tempX = map[1].length;
 		int TempY = map.length;
-		grid= new JButton[tempX][TempY];
+		grid = new JButton[tempX][TempY];
 		System.out.println(tempX + " - " + TempY);
 		frame.setLayout(new GridLayout(tempX, TempY, 3, 3));
 		addButtons(frame, TempY, tempX, map, marked);
@@ -107,12 +112,29 @@ public class show extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == this.grid[1][1]) {
-				System.out.println("testmessage1");
+		int y = grid[1].length;
+		int x = grid.length;
+		for (int yb = 0; yb < y; yb++) {
+			for (int xb = 0; xb < x; xb++) {
+				if (e.getSource() == this.grid[xb][yb]) {
+					System.out.println("yeet=  " + xb + "." + yb + "." + markedfields[xb][yb]);
+					// Diese Koordinaten zu Eriks generation.java senden
+					markedfields[xb][yb] = 1;
+
+					for (int yc = 0; yc < y; yc++) {
+						for (int xc = 0; xc < x; xc++) {
+							frame.remove(grid[xc][yc]);
+						}
+					}
+					addButtons(frame, x, y, mapB, markedfields);
+					frame.validate();
+					frame.repaint();
+				}
+			}
 		}
-		else
-		{
-		System.out.println("testmessage2");
-		}
+	}
+
+	public static void uncoverTile(int x, int y, byte code) {
+		markedfields[x][y] = code;
 	}
 }
