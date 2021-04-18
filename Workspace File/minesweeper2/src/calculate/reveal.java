@@ -11,24 +11,20 @@ public class reveal {
 		if (field[pos_x][pos_y] == 0) {
 			setzero(reveal, pos_x, pos_y);
 		}
-		int count = 0;
 		for (int i = 0; i < 1; i = i) {
 			i = 1;
 			for (int x = 0; x < width; x++) {
 				for (int y = 0; y < height; y++) {
-					if (field[x][y] == 0 && reveal[x][y]==true && donotcheck[x][y]==false) {
-						
-						setzero(reveal,x,y);
-						donotcheck[x][y]=true;
-						i=0;
-						
-						count++;
+					if (field[x][y] == 0 && reveal[x][y] == true && donotcheck[x][y] == false) {
+
+						setzero(reveal, x, y);
+						donotcheck[x][y] = true;
+						i = 0;
 					}
 				}
 			}
 
 		}
-		System.out.println("Das ist %count: " + count);
 		return reveal;
 	}
 
@@ -45,8 +41,6 @@ public class reveal {
 
 		return reveal;
 	}
-	
-
 
 	public static boolean[][] setzero(boolean[][] reveal, int pos_x, int pos_y) {
 
