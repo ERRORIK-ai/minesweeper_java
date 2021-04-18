@@ -9,6 +9,7 @@ public class start {
 		int[][] generator_obj;
 		boolean[][] reveal_obj;
 		
+		
 		Settings SettingsB = new Settings();
 		int  width_x =Integer.parseInt(SettingsB.getTxtWidth().getText());
 		System.out.println(width_x);
@@ -24,10 +25,10 @@ public class start {
 		
 		
 		//Simuliert Spieler eingabe ->Hier wird das Feld (6/6) angeklickt /x+1 & y+1
-		int pos_x = 5;
-		int pos_y = 5;
+		int pos_x = 19;
+		int pos_y = 19;
 		
-		reveal_obj = reveal.create(width_x, height_y);
+		reveal_obj = reveal.createreveal(width_x, height_y);
 		reveal_obj = reveal.reveal(reveal_obj, generator_obj, width_x, height_y, pos_x, pos_y);
 		
 		
@@ -39,6 +40,18 @@ public class start {
 			System.out.println();
 		}
 		//----------------------------
+		System.out.println("--------------------------------");
+		for (int x = 0; x < width_x; x++) {
+			for (int y = 0; y < height_y; y++) {
+				if (reveal_obj[x][y]==true) {
+					System.out.print("1");
+				} else {
+					System.out.print("0");
+				}
+				
+			}
+			System.out.println();
+		}
 		
 		
 	}
