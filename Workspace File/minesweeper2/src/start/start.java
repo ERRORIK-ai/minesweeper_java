@@ -23,8 +23,8 @@ public class start {
 		generator_obj = generator.calc(generator_obj, width_x, height_y);
 
 		// Simuliert Spieler eingabe ->Hier wird das Feld (6/6) angeklickt /x+1 & y+1
-		int pos_x = 19;
-		int pos_y = 19;
+		int pos_x = 6;
+		int pos_y = 6;
 
 		//Kreiert Booleanmap die anzeigt, welche Felder aufgedeckt sind.
 		reveal_obj = reveal.createreveal(width_x, height_y);
