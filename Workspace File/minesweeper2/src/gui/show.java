@@ -13,6 +13,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import calculate.generator;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -140,8 +142,8 @@ public class show extends JPanel implements ActionListener {
 		for (int yb = 0; yb < y; yb++) {
 			for (int xb = 0; xb < x; xb++) {
 				if (e.getSource() == this.grid[xb][yb]) {
-					System.out.println("yeet=  " + xb + "." + yb + "." + markedfields[xb][yb]);
-					// Diese Koordinaten zu Eriks generation.java senden
+					System.out.println("Debug-Message=  " + xb + "." + yb + "." + markedfields[xb][yb]);
+					// Diese Koordinaten zu Eriks generator.java senden
 					if (first) {
 						mapB[xb][yb] = 0;
 						surrounding();
@@ -177,6 +179,9 @@ public class show extends JPanel implements ActionListener {
 	}
 
 	public static void surrounding() {
+		//-----------------------------------------
+		//mapB = generator.calc(mapB, x, y);
+		//-----------------------------------------
 		int surrounding = 0;
 		for (int xa = 0; xa < mapB.length; xa++) {
 			for (int ya = 0; ya < mapB[0].length; ya++) {
