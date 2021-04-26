@@ -18,7 +18,7 @@ public class start {
 		double anzahl_minen = Double.parseDouble(SettingsB.getTxtMines().getText());
 		double prozent_minen = Integer.parseInt(SettingsB.getTxtMinesPercent().getText());
 
-		// width_x, height_y, prozent_minen, anzahl_minen
+		/* width_x, height_y, prozent_minen, anzahl_minen
 		generator_obj = generator.generator(width_x, height_y, prozent_minen, anzahl_minen);
 		generator_obj = generator.calc(generator_obj, width_x, height_y);
 
@@ -64,7 +64,7 @@ public class start {
 			System.out.println();
 		}
 		// ----------------------------
-
+*/
 	}
 
 }
