@@ -143,6 +143,7 @@ public class Settings extends JFrame implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
+
 		if (e.getSource() == this.btnReset)
 		{
 			this.txtWidth.setText("20");
