@@ -1,9 +1,14 @@
 package gui;
 
 import calculate.generator;
+import gui.Settings;
 
 public class game
 {
+	public static void main(String[] args)
+	{
+		Settings set = new Settings();
+	}
 	public static void gameloop(Settings SettingsB)
 	{
 		System.out.println(SettingsB.getTxtWidth());
