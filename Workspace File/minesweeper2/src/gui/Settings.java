@@ -31,7 +31,7 @@ public class Settings extends JFrame implements ActionListener
 	private JTextField txtHeight;
 	private JTextField txtMines;
 	private JTextField txtMinesPercent;
-	private JTextField txtUsername;
+	//private JTextField txtUsername;
 	private JButton btnStart = new JButton("Start");
 	private JButton btnReset = new JButton("Reset");
 	private String txtError="";
@@ -111,6 +111,7 @@ public class Settings extends JFrame implements ActionListener
 		pnlCenter.add(txtMinesPercent);
 		txtMinesPercent.setColumns(10);
 
+		/*
 		// Username
 		JLabel lusername = new JLabel("Username:");
 		pnlCenter.add(lusername);
@@ -118,6 +119,7 @@ public class Settings extends JFrame implements ActionListener
 		txtUsername = new JTextField();
 		pnlCenter.add(txtUsername);
 		txtUsername.setColumns(10);
+		*/
 		
 		// Error
 		JLabel Error = new JLabel(txtError);
@@ -135,7 +137,7 @@ public class Settings extends JFrame implements ActionListener
 		txtHeight.setText("20");
 		txtMines.setText("5");
 		txtMinesPercent.setText("0");
-		txtUsername.setText("Besucher");
+		//txtUsername.setText("Besucher");
 
 		this.setVisible(true);
 	}
@@ -150,7 +152,7 @@ public class Settings extends JFrame implements ActionListener
 			this.txtHeight.setText("20");
 			this.txtMines.setText("5");
 			this.txtMinesPercent.setText("5");
-			this.txtUsername.setText("Besucher");
+			//this.txtUsername.setText("Besucher");
 		}
 		else if (e.getSource() == this.btnStart)
 		{
@@ -202,7 +204,7 @@ public class Settings extends JFrame implements ActionListener
 	{
 		this.txtMines = txtMines;
 	}
-
+/*
 	public JTextField getTxtUsername()
 	{
 		return txtUsername;
@@ -212,6 +214,7 @@ public class Settings extends JFrame implements ActionListener
 	{
 		this.txtUsername = txtUsername;
 	}
+	*/
 	public JTextField getTxtMinesPercent()
 	{
 		return txtMinesPercent;

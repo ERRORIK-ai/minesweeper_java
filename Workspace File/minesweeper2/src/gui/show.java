@@ -142,13 +142,10 @@ public class show extends JPanel implements ActionListener {
 		for (int yb = 0; yb < y; yb++) {
 			for (int xb = 0; xb < x; xb++) {
 				if (e.getSource() == this.grid[xb][yb]) {
-<<<<<<< HEAD
 					System.out.println("yeet=  " + xb + "." + yb + "." + markedfields[xb][yb]);
 					// Diese Koordinaten zu Eriks generation.java senden
-=======
 					System.out.println("Debug-Message=  " + xb + "." + yb + "." + markedfields[xb][yb]);
 					// Diese Koordinaten zu Eriks generator.java senden
->>>>>>> 5230e41ba005c3af329dc137ff2deeb4b8771187
 					if (first) {
 						mapB[xb][yb] = 0;
 						surrounding();
@@ -178,54 +175,13 @@ public class show extends JPanel implements ActionListener {
 									"Gewonnen", JOptionPane.WARNING_MESSAGE);
 						}
 					}
-<<<<<<< HEAD
+
 				}
 			}
 		}
 	}
 
-	public static void surrounding() {
-		int surrounding = 0;
-		for (int xa = 0; xa < mapB.length; xa++) {
-			for (int ya = 0; ya < mapB[0].length; ya++) {
-				for (int xb = -1; xb <= 1; xb++) {
-					for (int yb = -1; yb <= 1; yb++) {
-						try {
-							if (mapB[xa + xb][ya + yb] == 9 && !(xb == 0 && yb == 0)) {
-								surrounding++;
-							}
-						} catch (IndexOutOfBoundsException e) {
-						}
-					}
-				}
-				if (mapB[xa][ya] != 9) {
-					mapB[xa][ya] = surrounding;
-				}
-				surrounding = 0;
-			}
-		}
-	}
 
-	public static void revealmap(int x, int y) {
-		for (int yb = -1; yb <= 1; yb++) {
-			for (int xb = -1; xb <= 1; xb++) {
-				try {
-					if (markedfields[x + xb][y + yb] != 1) {
-						markedfields[x + xb][y + yb] = 1;
-						if (mapB[x + xb][y + yb] == 0) {
-							revealmap(x + xb, y + yb);
-						}
-					}
-				} catch (IndexOutOfBoundsException e) {
-=======
->>>>>>> 5230e41ba005c3af329dc137ff2deeb4b8771187
-				}
-			}
-		}
-	}
-
-<<<<<<< HEAD
-=======
 	public static void surrounding() {
 		//-----------------------------------------
 		//mapB = generator.calc(mapB, x, y);
@@ -267,7 +223,7 @@ public class show extends JPanel implements ActionListener {
 		}
 	}
 
->>>>>>> 5230e41ba005c3af329dc137ff2deeb4b8771187
+
 	public static boolean win() {
 		for (int yb = 0; yb < mapB[0].length; yb++) {
 			for (int xb = 0; xb < mapB.length; xb++) {

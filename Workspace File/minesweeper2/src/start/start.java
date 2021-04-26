@@ -31,7 +31,7 @@ public class start {
 		
 		//Diese beiden Klassen müssen nach jeder Spieler eingabe ausgeführt werden.
 		reveal_obj = reveal.reveal(reveal_obj, generator_obj, width_x, height_y, pos_x, pos_y);
-		winorlose_obj = winorlose.winorlose(reveal_obj, generator_obj, width_x, height_y);
+		//winorlose_obj = winorlose.winorlose(reveal_obj, generator_obj, width_x, height_y);
 
 		// output printer (löschbar)--
 		System.out.println(width_x);

@@ -11,19 +11,21 @@ public class generator {
 		if (mines > 0 && percent_mines == 0) {
 			// IF SET COUNT OF MINES
 			int count_mines = 0;
-<<<<<<< HEAD
-			while ( count_mines < mines) {
-=======
+
 			while (count_mines < mines) {
->>>>>>> 5230e41ba005c3af329dc137ff2deeb4b8771187
-				for (int x = 0; x < width; x++) {
-					for (int y = 0; y < height; y++) {
-						if (Math.random() < mines / (width * height) && count_mines < mines && field[x][y] != 9) {
-							field[x][y] = 9;
-							count_mines++;
+
+				while (count_mines < mines) {
+
+					for (int x = 0; x < width; x++) {
+						for (int y = 0; y < height; y++) {
+							if (Math.random() < mines / (width * height) && count_mines < mines && field[x][y] != 9) {
+								field[x][y] = 9;
+								count_mines++;
+							}
 						}
 					}
 				}
+
 			}
 		} else {
 			// Falls kein Prozentwert mitgegeben wurde, wird 10% genommen
