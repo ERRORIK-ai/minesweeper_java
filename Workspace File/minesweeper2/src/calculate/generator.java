@@ -11,7 +11,7 @@ public class generator {
 		if (mines > 0 && percent_mines == 0) {
 			// IF SET COUNT OF MINES
 			int count_mines = 0;
-			for (; count_mines < mines;) {
+			while ( count_mines < mines) {
 				for (int x = 0; x < width; x++) {
 					for (int y = 0; y < height; y++) {
 						if (Math.random() < mines / (width * height) && count_mines < mines && field[x][y] != 9) {
