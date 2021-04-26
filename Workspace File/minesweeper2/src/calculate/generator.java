@@ -3,8 +3,7 @@ package calculate;
 public class generator {
 
 	public static int[][] generator(int width, int height, double percent_mines, double mines) {
-		// percent_mines=15;
-		// mines=0;
+
 		// Generiere Minesweeperfeld
 		int[][] field = new int[width][height];
 
@@ -46,6 +45,7 @@ public class generator {
 		return field;
 	}
 
+	//Rechne umliegende Minen zusammen
 	public static int[][] calc(int[][] field, int width, int height) {
 
 		int mine_counter = 0;

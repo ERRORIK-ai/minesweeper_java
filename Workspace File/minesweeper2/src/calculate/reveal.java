@@ -1,16 +1,19 @@
 package calculate;
 
 public class reveal {
+	//Felder die schon kontrolliert wurden, werden in dieser Array abgespeichert
 	public static boolean[][] donotcheck;
 
 	public static boolean[][] reveal(boolean[][] reveal, int[][] field, int width, int height, int pos_x, int pos_y) {
 
 		reveal[pos_x][pos_y] = true;
 
-		// Falls Spielereingabe eine Null ist
+		// Falls die Koordinaten des Spielers Null ist, werden die umliegenden Feldern auch aufgedeckt
 		if (field[pos_x][pos_y] == 0) {
 			setzero(reveal, pos_x, pos_y);
 		}
+		
+		//Falls ein leeres Feld aufgedeckt ist, werden die umliegenden Feldern auch aufgedeckt
 		for (int i = 0; i < 1; i = i) {
 			i = 1;
 			for (int x = 0; x < width; x++) {
@@ -28,6 +31,7 @@ public class reveal {
 		return reveal;
 	}
 
+	//Hier werden die Arrays erstellt und mit dem Wert false gefüllt
 	public static boolean[][] createreveal(int width, int height) {
 		boolean[][] reveal = new boolean[width][height];
 		donotcheck = new boolean[width][height];
@@ -42,6 +46,7 @@ public class reveal {
 		return reveal;
 	}
 
+	//Setzt umliegende Felder auf true (aufgedeckt) von der koordinate pos_x / pos_y
 	public static boolean[][] setzero(boolean[][] reveal, int pos_x, int pos_y) {
 
 		try {

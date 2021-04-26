@@ -7,12 +7,13 @@ public class gametest {
 	private game ga;
 
 	@Before
-	public void initgenerator() {
+	public void init() {
 		ga = new game();
 	}
 
 	public static Settings settingstest = new Settings();
 
+	//Testet gameloop
 	@Test
 	public void testgameloopn() {
 		ga.gameloop(settingstest);

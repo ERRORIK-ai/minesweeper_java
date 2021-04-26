@@ -11,6 +11,7 @@ public class revealtest {
 		rev = new reveal();
 	}
 
+	//Testet reveal
 	boolean[][] revarraybol = new boolean[3][3];
 	int[][] revarrayint = new int[3][3];
 

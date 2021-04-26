@@ -11,6 +11,7 @@ public class settingstest {
 		set = new Settings();
 	}
 
+	//Testet actionPerformed
 	@Test(expected = NullPointerException.class)
 	public void testactionPerformedNullPointerException() {
 		set.actionPerformed(null);

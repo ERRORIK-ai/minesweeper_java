@@ -7,10 +7,11 @@ public class starttest {
 	private start start;
 
 	@Before
-	public void initstart() {
+	public void init() {
 		start = new start();
 	}
 
+	//Testet main
 	@Test
 	public void testmain() {
 		start.main(null);

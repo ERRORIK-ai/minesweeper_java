@@ -46,6 +46,7 @@ public class show extends JPanel implements ActionListener {
 
 	JFrame frame = new JFrame();
 
+	// Generiert Framelayout
 	public show(int[][] map, byte[][] marked) {
 		first = true;
 		markedfields = marked;
@@ -63,6 +64,7 @@ public class show extends JPanel implements ActionListener {
 		frame.setVisible(true);
 	}
 
+	// Definiert die Farben des Fensters
 	@Override
 	public void paint(Graphics g) {
 		g.setColor(getBackground());
@@ -78,6 +80,7 @@ public class show extends JPanel implements ActionListener {
 		}
 	}
 
+	// Setzt die Farbe je nach Anzahl umliegenden Minen
 	void addButtons(JFrame frame, int x, int y, int[][] map, byte[][] marked) {
 		for (int yb = 0; yb < y; yb++) {
 			for (int xb = 0; xb < x; xb++) {
@@ -122,10 +125,8 @@ public class show extends JPanel implements ActionListener {
 					TempA = "";
 				}
 				/*
-				if (marked[xb][yb] == 3) {
-					TempA = "\uD83C\uDFF3";
-				}
-				*/
+				 * if (marked[xb][yb] == 3) { TempA = "\uD83C\uDFF3"; }
+				 */
 				grid[xb][yb] = new JButton(TempA);
 				grid[xb][yb].setBackground(color);
 				grid[xb][yb].setPreferredSize(new Dimension(55, 55));
@@ -135,6 +136,8 @@ public class show extends JPanel implements ActionListener {
 		}
 	}
 
+	// Falls ein Feld ausgewählt wird werden revealmap, surrounding mit den
+	// entsprechenden Koordinaten ausgeführt
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		int y = grid[1].length;
@@ -168,10 +171,12 @@ public class show extends JPanel implements ActionListener {
 					frame.repaint();
 					if (win()) {
 						if (lost) {
-							JOptionPane.showMessageDialog(null, "Alle Freien Felder aufgedeckt, Mine/n wurden jedoch getroffen",
-									"Gewonnen", JOptionPane.WARNING_MESSAGE);
+							JOptionPane.showMessageDialog(null,
+									"Alle Freien Felder aufgedeckt, Mine/n wurden jedoch getroffen", "Gewonnen",
+									JOptionPane.WARNING_MESSAGE);
 						} else {
-							JOptionPane.showMessageDialog(null, "Gratulation. Alle freien Felder wurden aufgedeckt und keine Mine wurde getroffen.",
+							JOptionPane.showMessageDialog(null,
+									"Gratulation. Alle freien Felder wurden aufgedeckt und keine Mine wurde getroffen.",
 									"Gewonnen", JOptionPane.WARNING_MESSAGE);
 						}
 					}
@@ -181,11 +186,11 @@ public class show extends JPanel implements ActionListener {
 		}
 	}
 
-
+	// Rechne umliegende Minen zusammen
 	public static void surrounding() {
-		//-----------------------------------------
-		//mapB = generator.calc(mapB, x, y);
-		//-----------------------------------------
+		// -----------------------------------------
+		// mapB = generator.calc(mapB, x, y);
+		// -----------------------------------------
 		int surrounding = 0;
 		for (int xa = 0; xa < mapB.length; xa++) {
 			for (int ya = 0; ya < mapB[0].length; ya++) {
@@ -207,6 +212,7 @@ public class show extends JPanel implements ActionListener {
 		}
 	}
 
+	// Berechnung zur Aufdeckung von Karten
 	public static void revealmap(int x, int y) {
 		for (int yb = -1; yb <= 1; yb++) {
 			for (int xb = -1; xb <= 1; xb++) {
@@ -223,7 +229,7 @@ public class show extends JPanel implements ActionListener {
 		}
 	}
 
-
+	//kontrolliert ob man schon gewonnen (mit & ohne Minen treffen) oder verloren hat
 	public static boolean win() {
 		for (int yb = 0; yb < mapB[0].length; yb++) {
 			for (int xb = 0; xb < mapB.length; xb++) {
