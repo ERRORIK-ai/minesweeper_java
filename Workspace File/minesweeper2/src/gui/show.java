@@ -14,6 +14,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import calculate.generator;
+import calculate.reveal;
+import calculate.winorlose;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -188,56 +190,18 @@ public class show extends JPanel implements ActionListener {
 
 	// Rechne umliegende Minen zusammen
 	public static void surrounding() {
-		// -----------------------------------------
-		// mapB = generator.calc(mapB, x, y);
-		// -----------------------------------------
-		int surrounding = 0;
-		for (int xa = 0; xa < mapB.length; xa++) {
-			for (int ya = 0; ya < mapB[0].length; ya++) {
-				for (int xb = -1; xb <= 1; xb++) {
-					for (int yb = -1; yb <= 1; yb++) {
-						try {
-							if (mapB[xa + xb][ya + yb] == 9 && !(xb == 0 && yb == 0)) {
-								surrounding++;
-							}
-						} catch (IndexOutOfBoundsException e) {
-						}
-					}
-				}
-				if (mapB[xa][ya] != 9) {
-					mapB[xa][ya] = surrounding;
-				}
-				surrounding = 0;
-			}
-		}
+		mapB = generator.calc(mapB);
 	}
 
 	// Berechnung zur Aufdeckung von Karten
 	public static void revealmap(int x, int y) {
-		for (int yb = -1; yb <= 1; yb++) {
-			for (int xb = -1; xb <= 1; xb++) {
-				try {
-					if (markedfields[x + xb][y + yb] != 1) {
-						markedfields[x + xb][y + yb] = 1;
-						if (mapB[x + xb][y + yb] == 0) {
-							revealmap(x + xb, y + yb);
-						}
-					}
-				} catch (IndexOutOfBoundsException e) {
-				}
-			}
-		}
+		markedfields = reveal.reveal(mapB, markedfields, x, y);
+
 	}
 
-	//kontrolliert ob man schon gewonnen (mit & ohne Minen treffen) oder verloren hat
+	// kontrolliert ob man schon gewonnen (mit & ohne Minen treffen) oder verloren
+	// hat
 	public static boolean win() {
-		for (int yb = 0; yb < mapB[0].length; yb++) {
-			for (int xb = 0; xb < mapB.length; xb++) {
-				if (mapB[xb][yb] != 9 && markedfields[xb][yb] != 1) {
-					return false;
-				}
-			}
-		}
-		return true;
+		return winorlose.winorlose(mapB, markedfields);
 	}
 }

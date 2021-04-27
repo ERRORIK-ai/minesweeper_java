@@ -46,204 +46,27 @@ public class generator {
 	}
 
 	//Rechne umliegende Minen zusammen
-	public static int[][] calc(int[][] field, int width, int height) {
-
-		int mine_counter = 0;
-
-		height = height - 1;
-		width = width - 1;
-
-		// Oberste Reihe
-		for (int y = 1; y < height; y++) {
-			if (field[0][y] != 9) {
-				if (field[0][y - 1] == 9) {
-					mine_counter++;
-				}
-				if (field[1][y - 1] == 9) {
-					mine_counter++;
-				}
-				if (field[1][y] == 9) {
-					mine_counter++;
-				}
-				if (field[1][y + 1] == 9) {
-					mine_counter++;
-				}
-				if (field[0][y + 1] == 9) {
-					mine_counter++;
-				}
-				field[0][y] = mine_counter;
-				mine_counter = 0;
-			}
-
-		}
-
-		// Oberen Ecken
-		if (field[0][0] != 9) {
-			mine_counter = 0;
-			if (field[1][0] == 9) {
-				mine_counter++;
-			}
-			if (field[1][1] == 9) {
-				mine_counter++;
-			}
-			if (field[0][1] == 9) {
-				mine_counter++;
-			}
-			field[0][0] = mine_counter;
-			mine_counter = 0;
-		}
-
-		if (field[0][height] != 9) {
-			mine_counter = 0;
-			if (field[1][height] == 9) {
-				mine_counter++;
-			}
-			if (field[1][height - 1] == 9) {
-				mine_counter++;
-			}
-			if (field[0][height - 1] == 9) {
-				mine_counter++;
-			}
-			field[0][height] = mine_counter;
-			mine_counter = 0;
-		}
-
-		// Die Mittleren Reihen
-		for (int x = 1; x < height; x++) {
-			for (int y = 1; y < width; y++) {
-
-				if (field[y][x] != 9) {
-					if (field[y - 1][x + 1] == 9) {
-						mine_counter++;
+	public static int[][] calc(int[][] mapB) {
+		int surrounding = 0;
+		for (int xa = 0; xa < mapB.length; xa++) {
+			for (int ya = 0; ya < mapB[0].length; ya++) {
+				for (int xb = -1; xb <= 1; xb++) {
+					for (int yb = -1; yb <= 1; yb++) {
+						try {
+							if (mapB[xa + xb][ya + yb] == 9 && !(xb == 0 && yb == 0)) {
+								surrounding++;
+							}
+						} catch (IndexOutOfBoundsException e) {
+						}
 					}
-					if (field[y - 1][x] == 9) {
-						mine_counter++;
-					}
-					if (field[y - 1][x - 1] == 9) {
-						mine_counter++;
-					}
-					if (field[y][x - 1] == 9) {
-						mine_counter++;
-					}
-					if (field[y + 1][x - 1] == 9) {
-						mine_counter++;
-					}
-					if (field[y + 1][x] == 9) {
-						mine_counter++;
-					}
-					if (field[y + 1][x + 1] == 9) {
-						mine_counter++;
-					}
-					if (field[y][x + 1] == 9) {
-						mine_counter++;
-					}
-					field[y][x] = mine_counter;
-					mine_counter = 0;
 				}
-
+				if (mapB[xa][ya] != 9) {
+					mapB[xa][ya] = surrounding;
+				}
+				surrounding = 0;
 			}
 		}
-
-		// Die Unterste Reihe
-		for (int y = 1; y < height; y++) {
-			if (field[width][y] != 9) {
-				if (field[width][y - 1] == 9) {
-					mine_counter++;
-				}
-				if (field[width - 1][y - 1] == 9) {
-					mine_counter++;
-				}
-				if (field[width - 1][y] == 9) {
-					mine_counter++;
-				}
-				if (field[width - 1][y + 1] == 9) {
-					mine_counter++;
-				}
-				if (field[width][y + 1] == 9) {
-					mine_counter++;
-				}
-				field[width][y] = mine_counter;
-				mine_counter = 0;
-			}
-		}
-
-		// Unteren Ecken
-
-		if (field[width][0] != 9) {
-			if (field[width][1] == 9) {
-				mine_counter++;
-			}
-			if (field[width - 1][1] == 9) {
-				mine_counter++;
-			}
-			if (field[width - 1][0] == 9) {
-				mine_counter++;
-			}
-			field[width][0] = mine_counter;
-			mine_counter = 0;
-		}
-
-		if (field[width][height] != 9) {
-			if (field[width][height - 1] == 9) {
-				mine_counter++;
-			}
-			if (field[width - 1][height - 1] == 9) {
-				mine_counter++;
-			}
-			if (field[width - 1][height] == 9) {
-				mine_counter++;
-			}
-			field[width][height] = mine_counter;
-			mine_counter = 0;
-		}
-
-		// Die Linke Reihe
-		for (int x = 1; x < width; x++) {
-			if (field[x][0] != 9) {
-				if (field[x - 1][0] == 9) {
-					mine_counter++;
-				}
-				if (field[x + 1][0] == 9) {
-					mine_counter++;
-				}
-				if (field[x + 1][1] == 9) {
-					mine_counter++;
-				}
-				if (field[x - 1][1] == 9) {
-					mine_counter++;
-				}
-				if (field[x][1] == 9) {
-					mine_counter++;
-				}
-				field[x][0] = mine_counter;
-				mine_counter = 0;
-			}
-		}
-
-		// Die Rechte Reihe
-		for (int x = 1; x < width; x++) {
-			if (field[x][height] != 9) {
-				if (field[x - 1][height] == 9) {
-					mine_counter++;
-				}
-				if (field[x + 1][height] == 9) {
-					mine_counter++;
-				}
-				if (field[x + 1][height - 1] == 9) {
-					mine_counter++;
-				}
-				if (field[x - 1][height - 1] == 9) {
-					mine_counter++;
-				}
-				if (field[x][height - 1] == 9) {
-					mine_counter++;
-				}
-				field[x][height] = mine_counter;
-				mine_counter = 0;
-			}
-		}
-
-		return field;
+		return mapB;
 	}
 
 }
