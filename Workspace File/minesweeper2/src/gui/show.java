@@ -35,6 +35,7 @@ import javax.swing.JScrollPane;
 
 public class show extends JPanel implements ActionListener {
 	private JButton[][] grid;
+<<<<<<< HEAD
 	private JButton flag;
 	private static JLabel[] toolbar;
 	private static byte[][] markedfields;
@@ -42,6 +43,8 @@ public class show extends JPanel implements ActionListener {
 	private static boolean first = true;
 	private static boolean lost = false;
 
+=======
+>>>>>>> parent of 36dd302 (update)
 	public static void showgui(int[][] map, byte[][] marked) {
 		new show(map, marked);
 	}
@@ -50,12 +53,16 @@ public class show extends JPanel implements ActionListener {
 
 	// Generiert Framelayout
 	public show(int[][] map, byte[][] marked) {
+<<<<<<< HEAD
 		first = true;
 		markedfields = marked;
 		mapB = map;
 		int tempX = map[0].length;
+=======
+		int tempX = map[1].length;
+>>>>>>> parent of 36dd302 (update)
 		int TempY = map.length;
-		grid = new JButton[tempX][TempY];
+		grid= new JButton[tempX][TempY];
 		System.out.println(tempX + " - " + TempY);
 		frame.setLayout(new GridLayout(tempX, TempY, 3, 3));
 		JPanel toolbar = new JPanel();
@@ -142,6 +149,7 @@ public class show extends JPanel implements ActionListener {
 	// entsprechenden Koordinaten ausgeführt
 	@Override
 	public void actionPerformed(ActionEvent e) {
+<<<<<<< HEAD
 		int y = grid[1].length;
 		int x = grid.length;
 		for (int yb = 0; yb < y; yb++) {
@@ -203,5 +211,14 @@ public class show extends JPanel implements ActionListener {
 	// hat
 	public static boolean win() {
 		return winorlose.winorlose(mapB, markedfields);
+=======
+		if (e.getSource() == this.grid[1][1]) {
+				System.out.println("testmessage1");
+		}
+		else
+		{
+		System.out.println("testmessage2");
+		}
+>>>>>>> parent of 36dd302 (update)
 	}
 }
