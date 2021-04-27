@@ -1,6 +1,8 @@
-package start;
+package starttest;
 
 import org.junit.*;
+
+import start.start;
 
 public class starttest {
 

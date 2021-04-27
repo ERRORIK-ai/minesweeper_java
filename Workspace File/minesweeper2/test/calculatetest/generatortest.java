@@ -1,6 +1,8 @@
-package calculate;
+package calculatetest;
 
 import org.junit.*;
+
+import calculate.generator;
 
 public class generatortest {
 
@@ -27,12 +29,9 @@ public class generatortest {
 
 	@Test
 	public void testcalc() {
-		gen.calc(calcarray, 3, 3);
+		gen.calc(calcarray);
 	}
 
-	@Test(expected = ArrayIndexOutOfBoundsException.class)
-	public void testcalcArrayIndexOutOfBoundsException() {
-		gen.calc(calcarray, 1, 1);
-	}
+
 
 }

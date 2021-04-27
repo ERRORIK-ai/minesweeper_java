@@ -83,7 +83,7 @@ public class show extends JPanel implements ActionListener {
 	}
 
 	// Setzt die Farbe je nach Anzahl umliegenden Minen
-	void addButtons(JFrame frame, int x, int y, int[][] map, byte[][] marked) {
+	public void addButtons(JFrame frame, int x, int y, int[][] map, byte[][] marked) {
 		for (int yb = 0; yb < y; yb++) {
 			for (int xb = 0; xb < x; xb++) {
 				String TempA = Integer.toString(map[xb][yb]);

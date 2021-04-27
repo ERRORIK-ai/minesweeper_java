@@ -1,6 +1,8 @@
-package gui;
+package guitest;
 
 import org.junit.*;
+
+import gui.Settings;
 
 public class settingstest {
 
