@@ -21,8 +21,8 @@ public class game
 		//Generiert Map von der Generator Klasse
 		int[][] map = generator.generator(Integer.parseInt(SettingsB.getTxtWidth().getText()),
 				Integer.parseInt(SettingsB.getTxtHeight().getText()),
-				Double.parseDouble(SettingsB.getTxtMines().getText()),
-				Integer.parseInt(SettingsB.getTxtMinesPercent().getText()));
+				Double.parseDouble(SettingsB.getTxtMinesPercent().getText()),
+				Integer.parseInt(SettingsB.getTxtMines().getText()));
 		//Printed Map aus
 		for (int[] x : map)
 		{

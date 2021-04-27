@@ -4,17 +4,20 @@ public class generator {
 
 	public static int[][] generator(int width, int height, double percent_mines, double mines) {
 
+		if (height*width<mines)
+		{
+			mines=height*width;
+		}
+		
 		// Generiere Minesweeperfeld
 		int[][] field = new int[width][height];
 
 		if (mines > 0 && percent_mines == 0) {
 			// IF SET COUNT OF MINES
 			int count_mines = 0;
+			boolean test=true;
 
-			while (count_mines < mines) {
-
-				while (count_mines < mines) {
-
+			while (count_mines < mines && test==true) {
 					for (int x = 0; x < width; x++) {
 						for (int y = 0; y < height; y++) {
 							if (Math.random() < mines / (width * height) && count_mines < mines && field[x][y] != 9) {
@@ -23,7 +26,6 @@ public class generator {
 							}
 						}
 					}
-				}
 
 			}
 		} else {
